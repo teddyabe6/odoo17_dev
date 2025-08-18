@@ -16,6 +16,7 @@
         'security/ir.model.access.csv',
         # 'views/farmer_management_views.xml',
 		'views/farmer_views.xml',
+		'security/security.xml',
 ],
     'license': 'LGPL-3',
     'installable': True,

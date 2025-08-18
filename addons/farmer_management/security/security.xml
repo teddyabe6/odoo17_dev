@@ -1,0 +1,23 @@
+<odoo>
+    <!-- Farmer Officer Group -->
+    <record id="group_farmer_officer" model="res.groups">
+        <field name="name">Farmer Officer</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+
+    <!-- Farmer Admin Group -->
+    <record id="group_farmer_admin" model="res.groups">
+        <field name="name">Farmer Admin</field>
+        <field name="implied_ids" eval="[(4, ref('group_farmer_officer'))]"/>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+
+    <!-- Officer can only see farmers they created -->
+    <record id="farmer_rule_officer_own" model="ir.rule">
+        <field name="name">Farmer Officer Own Records</field>
+        <field name="model_id" ref="model_farmer_management"/>
+        <field name="groups" eval="[(4, ref('farmer_management.group_farmer_officer'))]"/>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+    </record>
+
+</odoo>

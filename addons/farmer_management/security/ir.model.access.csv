@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_farmer_management_user,access.farmer.management.user,model_farmer_management,base.group_user,1,1,1,1
+access_farmer_management_officer,access_farmer_management_officer,model_farmer_management,farmer_management.group_farmer_officer,1,1,1,0
+access_farmer_management_admin,access_farmer_management_admin,model_farmer_management,farmer_management.group_farmer_admin,1,1,1,1
