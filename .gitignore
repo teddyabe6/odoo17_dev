@@ -1,0 +1,54 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+
+# Distribution / packaging
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Odoo / Python cache
+*.log
+*.pot
+*.pydevproject
+.idea/
+.vscode/
+*.swp
+*.swo
+*.tmp
+*.DS_Store
+Thumbs.db
+
+# Local Odoo generated files
+odoo-data/
+*.db
+*.dump
+*.zip
+*.bak
+
+# Docker volumes
+postgres-data/
+config/odoo.conf
+
+# Coverage / test reports
+.coverage
+.tox/
+pytest_cache/
+
+# Node / frontend
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# System files
+*.orig
+*~

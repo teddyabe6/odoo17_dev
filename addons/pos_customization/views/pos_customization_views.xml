@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Sample form view -->
+    <record id="pos_customization_view_form" model="ir.ui.view">
+        <field name="name">pos.customization.view.form</field>
+        <field name="model">pos.customization</field>
+        <field name="arch" type="xml">
+            <form string="Sample">
+                <header>
+                    <button name="button_action" string="Submit" type="object" class="btn-primary"/>
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g Marc Demo"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="active" invisible="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Details">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Sample list view -->
+    <record id="pos_customization_view_list" model="ir.ui.view">
+        <field name="name">pos.customization.view.list</field>
+        <field name="model">pos.customization</field>
+        <field name="arch" type="xml">
+            <list string="Samples">
+                <field name="name"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Kanban View -->
+    <record id="pos_customization_view_kanban" model="ir.ui.view">
+        <field name="name">pos.customization.view.kanban</field>
+        <field name="model">pos.customization</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <field name="name"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="pos_customization_view_search" model="ir.ui.view">
+        <field name="name">pos.customization.view.search</field>
+        <field name="model">pos.customization</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter string="Draft" name="filter_draft" domain="[('state','=','draft')]"/>
+                <filter string="Confirmed" name="filter_confirmed" domain="[('state','=','confirmed')]"/>
+                <filter string="Done" name="filter_done" domain="[('state','=','done')]"/>
+            </search>
+        </field>
+    </record>
+    <!-- Action -->
+    <record id="pos_customization_action" model="ir.actions.act_window">
+        <field name="name">Samples</field>
+        <field name="res_model">pos.customization</field>
+        <field name="view_mode">list,form,kanban</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem name="Pos Customization"
+              id="pos_customization_menu_root"/>
+
+    <menuitem name="Samples"
+              id="pos_customization_menu"
+              parent="pos_customization_menu_root"
+              action="pos_customization_action"/>
+</odoo>
