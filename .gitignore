@@ -36,6 +36,7 @@ odoo-data/
 *.bak
 
 # Docker volumes
+postgresql/
 postgres-data/
 config/odoo.conf
 
