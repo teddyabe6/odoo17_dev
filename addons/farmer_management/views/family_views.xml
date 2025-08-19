@@ -1,0 +1,45 @@
+<odoo>
+    <record id="action_family" model="ir.actions.act_window">
+        <field name="name">Family Members</field>
+        <field name="res_model">farmer.family</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_family"
+              name="Family Members"
+              parent="menu_farmer_root"
+              action="action_family"
+              sequence="40"/>
+
+    <!-- Tree -->
+    <record id="view_family_tree" model="ir.ui.view">
+        <field name="name">farmer.family.tree</field>
+        <field name="model">farmer.family</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="member_name"/>
+                <field name="relation"/>
+                <field name="age"/>
+                <field name="farmer_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_family_form" model="ir.ui.view">
+        <field name="name">farmer.family.form</field>
+        <field name="model">farmer.family</field>
+        <field name="arch" type="xml">
+            <form string="Family Member">
+                <sheet>
+                    <group>
+                        <field name="member_name"/>
+                        <field name="relation"/>
+                        <field name="age"/>
+                        <field name="farmer_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

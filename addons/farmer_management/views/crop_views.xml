@@ -1,0 +1,47 @@
+<odoo>
+    <record id="action_crop" model="ir.actions.act_window">
+        <field name="name">Crops</field>
+        <field name="res_model">farmer.crop</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_crop"
+              name="Crops"
+              parent="menu_farmer_root"
+              action="action_crop"
+              sequence="30"/>
+
+    <!-- Tree -->
+    <record id="view_crop_tree" model="ir.ui.view">
+        <field name="name">farmer.crop.tree</field>
+        <field name="model">farmer.crop</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="season"/>
+                <field name="expected_yield"/>
+                <field name="land_id"/>
+                <field name="farmer_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_crop_form" model="ir.ui.view">
+        <field name="name">farmer.crop.form</field>
+        <field name="model">farmer.crop</field>
+        <field name="arch" type="xml">
+            <form string="Crop">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="season"/>
+                        <field name="expected_yield"/>
+                        <field name="land_id"/>
+                        <field name="farmer_id" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

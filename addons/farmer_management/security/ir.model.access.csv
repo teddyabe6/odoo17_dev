@@ -1,4 +1,12 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_farmer_management_user,access.farmer.management.user,model_farmer_management,base.group_user,1,1,1,1
-access_farmer_management_officer,access_farmer_management_officer,model_farmer_management,farmer_management.group_farmer_officer,1,1,1,0
-access_farmer_management_admin,access_farmer_management_admin,model_farmer_management,farmer_management.group_farmer_admin,1,1,1,1
+access_farmer_admin,farmer.admin,model_farmer_management,farmer_management.group_farmer_admin,1,1,1,1
+access_farmer_user,farmer.user,model_farmer_management,farmer_management.group_farmer_user,1,1,1,0
+
+access_land_admin,land.admin,model_farmer_land,farmer_management.group_farmer_admin,1,1,1,1
+access_land_user,land.user,model_farmer_land,farmer_management.group_farmer_user,1,1,1,0
+
+access_crop_admin,crop.admin,model_farmer_crop,farmer_management.group_farmer_admin,1,1,1,1
+access_crop_user,crop.user,model_farmer_crop,farmer_management.group_farmer_user,1,1,1,0
+
+access_family_admin,family.admin,model_farmer_family,farmer_management.group_farmer_admin,1,1,1,1
+access_family_user,family.user,model_farmer_family,farmer_management.group_farmer_user,1,1,1,0
