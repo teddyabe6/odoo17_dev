@@ -21,6 +21,9 @@
 		'views/crop_views.xml',
 		'views/family_views.xml',
 ],
+'test': [
+    'tests/test_farmer.py',
+],
     'license': 'LGPL-3',
     'installable': True,
     'application': False,

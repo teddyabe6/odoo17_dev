@@ -11,15 +11,22 @@ class Farmer(models.Model):
     phone = fields.Char(string="Phone")
     age = fields.Integer(string="Age")
     village = fields.Char(string="Village")
-    partner_id = fields.Many2one("res.partner", string="Partner", required=True, tracking=True)
+    partner_id = fields.Many2one("res.partner", string="Partner", tracking=True)
     land_ids = fields.One2many('farmer.land', 'farmer_id', string="Lands")
     family_ids = fields.One2many('farmer.family', 'farmer_id', string="Family Members")
-
+    land_size = fields.Float("Land Size (Ha)")
     total_land_area = fields.Float(
         string="Total Land (Hectares)",
         compute="_compute_total_land_area",
         store=True
     )
+
+    @api.depends("land_size")
+    def _compute_large_scale(self):
+        for farmer in self:
+            farmer.is_large_scale = farmer.land_size >= 5
+
+    is_large_scale = fields.Boolean("Large Scale", compute="_compute_large_scale", store=True)
 
     @api.depends('land_ids.size_in_hectares')
     def _compute_total_land_area(self):
